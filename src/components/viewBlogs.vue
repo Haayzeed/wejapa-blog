@@ -6,6 +6,7 @@
             <div class="col-md-12 mb-4">
                 <div class="card">
                     <div class="card-body">
+                      <!-- blog body -->
                         <div class="row">
                             <div class="col-md-12">
                                 <img src="@/assets/blog.jpg" alt="" class="mb-3">
@@ -25,6 +26,7 @@
                           <div class="col-md-12 text-left">
                             <h5 class="font-weight-bold">Comments</h5>
                             <hr>
+                            <!-- blog comments -->
                             <div class="col-md-12 pl-0" v-for="(blogComment, index) in blogComments" :key="index">
                               <h6 class="font-weight-bold">{{blogComment.name}}</h6>
                               <p>{{blogComment.body}}</p>
@@ -36,8 +38,7 @@
                           <div class="col-md-6 offset-md-3 text-left">
                             <div class="card">
                               <div class="card-body">
-
-                              
+                                <!-- comment form -->
                             <h6 class="font-weight-bold">Add Comment</h6>
                             <hr>
                             <form action="">
@@ -46,14 +47,12 @@
                                   <div class="form-group">
                                     <label for="">Name</label>
                                     <input type="text" class="form-control rounded-0" v-model="ucomments.name">
-                                    <span class="text-danger">{{error}}</span>
                                   </div>
                                 </div>
                                  <div class="col-md-12">
                                   <div class="form-group">
                                     <label for="">Comment</label>
                                     <textarea type="text" class="form-control rounded-0" v-model="ucomments.body" style="resize: none"></textarea>
-                                    <span class="text-danger">{{error}}</span>
                                   </div>
                                 </div>
                               </div>
@@ -65,7 +64,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
       <div>
@@ -84,8 +82,6 @@ export default {
               name: '',
               body: ''
             },
-            error: ''
-            
         }
     },
     methods: {
@@ -95,15 +91,9 @@ export default {
       })
       },
       addComment(e){
-        // if(this.ucomments.name == '' && this.ucomments.body == ''){
-        //   this.error = 'Oga! Abeg enter something na.'
-        // }
-        // else{
-          this.blogComments.push(this.ucomments);
-        // }
-        this.ucomments = '' 
-          // this.ucomments.body = ''
           e.preventDefault()
+          this.blogComments.push(this.ucomments);
+          this.ucomments = ''
       }
     },
     created(){

@@ -3,7 +3,7 @@
         <div class="container pb-5">
             <h3 class="text-center font-weight-bold">Welcome to Wejapa Blog</h3>
             <hr class="d-block mx-auto mb-4" style="width: 10%; border: 2px solid black">
-            <paginate name="blogs" :list="blogs" :per="10">
+            <paginate name="blogs" :list="blogs" :per="10" v-if="shown">
             <div class="col-md-12 mb-4" v-for="(blog, index) in paginated('blogs')" :key="index">
                 <div class="card">
                     <div class="card-body">
@@ -39,7 +39,8 @@ export default {
         return{
             id: this.$route.params.id,
             blogs: [],
-            paginate: ['blogs']
+            paginate: ['blogs'],
+            shown: false
         }
     },
     methods:{
@@ -47,6 +48,7 @@ export default {
     created(){
     axios.get('https://jsonplaceholder.typicode.com/posts').then((response) =>{
       this.blogs = response.data
+      this.shown = true
     })
   }
 }
