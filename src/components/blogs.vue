@@ -43,10 +43,6 @@ export default {
         }
     },
     methods:{
-        // clickCallback: function(page) {
-        // console.log(page)
-    
-    // }
     },
     created(){
     axios.get('https://jsonplaceholder.typicode.com/posts').then((response) =>{
@@ -54,8 +50,6 @@ export default {
     })
   }
 }
-// :prev-text="prev"
-                // :next-text="next"
 </script>
 <style>
 .pagination{
@@ -70,10 +64,15 @@ export default {
         padding: 8px 10px !important;
     }
     .pagination .right-arrow a{
-        margin-left: 5px;
+        margin-left: 8px;
     }
     .number a{
         color: #041705 !important;
-        margin-left: 5px
+        margin-left: 10px;
+    }
+    .number.active a{
+         background: #041705 !important;
+        color: #fff !important;
+        padding: 4px;
     }
 </style>
