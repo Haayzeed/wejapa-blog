@@ -98,14 +98,15 @@
       })
     },
     addComment(){
-    if(this.ucomments.name == '' && this.ucomments.body == ''){
-      this.error = "Enter the required fields"
+    if(this.ucomments.name && this.ucomments.body){
+      this.blogComments.push(this.ucomments);
+    this.ucomments = {}
+      // this.error = "Enter the required fields"
     }
-    else{
-    this.blogComments.push(this.ucomments);
-    this.ucomments = ''
-    }
-    console.log(this.blogComments)
+    // else{
+    
+    // }
+    // console.log(this.blogComments)
   }
   },
   created(){
