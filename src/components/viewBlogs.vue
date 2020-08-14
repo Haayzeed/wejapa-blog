@@ -53,17 +53,19 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="">Name</label>
-                        <input type="text" class="form-control rounded-0" v-model="ucomments.name">
+                        <input type="text" class="form-control rounded-0"  v-model="ucomments.name">
+                        <span class="text-danger">{{error}}</span>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="">Comment</label>
-                        <textarea type="text" class="form-control rounded-0" v-model="ucomments.body" style="resize: none"></textarea>
+                        <textarea type="text" class="form-control rounded-0"  v-model="ucomments.body" style="resize: none"></textarea>
+                        <span class="text-danger">{{error}}</span>
                       </div>
                     </div>
                   </div>
-                  <button @click="addComment" class="btn btn-primary rounded-0">Add Comment</button>
+                  <button @click.prevent="addComment" class="btn btn-primary rounded-0">Add Comment</button>
                 </form>
               </div>
             </div>
@@ -84,8 +86,9 @@
       blogComments: {},
       ucomments:{
         name: '',
-        body: ''
+        body: '',
       },
+      error: ''
     }
   },
   methods: {
@@ -94,11 +97,16 @@
       this.blogPost = response.data
       })
     },
-    addComment(e){
-    e.preventDefault()
+    addComment(){
+    if(this.ucomments.name == '' && this.ucomments.body == ''){
+      this.error = "Enter the required fields"
+    }
+    else{
     this.blogComments.push(this.ucomments);
     this.ucomments = ''
     }
+    console.log(this.blogComments)
+  }
   },
   created(){
     this.getBlogs();
