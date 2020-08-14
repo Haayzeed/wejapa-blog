@@ -101,11 +101,11 @@
     if(this.ucomments.name && this.ucomments.body){
       this.blogComments.push(this.ucomments);
     this.ucomments = {}
-      // this.error = "Enter the required fields"
+      
     }
-    // else{
-    
-    // }
+    else{
+    this.error = "Enter the required fields"
+    }
     // console.log(this.blogComments)
   }
   },
