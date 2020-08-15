@@ -98,16 +98,14 @@
       })
     },
     addComment(){
-    if(this.ucomments.name && this.ucomments.body){
-      this.blogComments.push(this.ucomments);
-    this.ucomments = {}
-      
+      if(this.ucomments.name && this.ucomments.body){
+        this.blogComments.push(this.ucomments);
+        this.ucomments = {}
+      }
+      else{
+        this.error = "Enter the required fields"
+      }
     }
-    else{
-    this.error = "Enter the required fields"
-    }
-    // console.log(this.blogComments)
-  }
   },
   created(){
     this.getBlogs();
@@ -118,31 +116,31 @@
 }
 </script>
 <style scoped>
-img{
-width: 100%;
-height: 200px;
-}
-.btn{
-background: #041705 !important;
-color: #fff !important;
-border: none;
-box-shadow: none;
-}
-input:focus, textarea:focus, .btn:focus{
-box-shadow: none;
-}
-label{
-font-weight: bold;
-}
-span{
-font-size: 13px;
-}
-.pro-img{
-width: 50px;
-height: 50px;
-position: absolute;
-top: 40%;
-left: -20px;
-transform: translate(-50%, -50%)
-}
+  img{
+    width: 100%;
+    height: 200px;
+  }
+  .btn{
+    background: #041705 !important;
+    color: #fff !important;
+    border: none;
+    box-shadow: none;
+  }
+  input:focus, textarea:focus, .btn:focus{
+    box-shadow: none;
+  }
+  label{
+    font-weight: bold;
+  }
+  span{
+    font-size: 13px;
+  }
+  .pro-img{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 40%;
+    left: -20px;
+    transform: translate(-50%, -50%)
+  }
 </style>

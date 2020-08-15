@@ -60,23 +60,23 @@ export default {
 .page-links{
     text-align: center !important;
 }
-    .pagination .left-arrow a, .pagination .right-arrow a{
+.pagination .left-arrow a, .pagination .right-arrow a{
+    background: #041705 !important;
+    color: #fff !important;
+    padding: 8px 10px !important;
+    cursor: pointer !important;
+}
+.pagination .right-arrow a{
+    margin-left: 8px;
+}
+.number a{
+    color: #041705 !important;
+    margin-left: 10px;
+    cursor: pointer !important;
+}
+.number.active a{
         background: #041705 !important;
-        color: #fff !important;
-        padding: 8px 10px !important;
-        cursor: pointer !important;
-    }
-    .pagination .right-arrow a{
-        margin-left: 8px;
-    }
-    .number a{
-        color: #041705 !important;
-        margin-left: 10px;
-        cursor: pointer !important;
-    }
-    .number.active a{
-         background: #041705 !important;
-        color: #fff !important;
-        padding: 4px;
-    }
+    color: #fff !important;
+    padding: 4px;
+}
 </style>
